@@ -9,11 +9,13 @@ const photoScreen = document.getElementById('screen-photos');
 function transition1() {
     titleScreen.classList.remove('active');
     introScreen.classList.add('active');
+    beep.play();
 }
 
 function transition2() {
     introScreen.classList.remove('active');
     mailTruckScene.classList.add('active');
+    beep.play();
 }
 
 let step = 0;
@@ -24,14 +26,17 @@ const audio4 = new Audio('4.mp3');
 const papersfx = new Audio('papersfx.mp3');
 const envelopesfx = new Audio('envelopesfx.mp3');
 const doorbell = new Audio('doorbell.mp3');
+const beep = new Audio('beep.mp3');
 
 const bgaudio1 = new Audio('bgaudio1.mp3');
-
+const muteBtn = document.getElementById("mute-btn");
 function togglebg() {
     if (bgaudio1.paused) {
         bgaudio1.play();
+        muteBtn.textContent = "Click for music! (on)";
     } else {
         bgaudio1.pause();
+        muteBtn.textContent = "Click for music! (off)";
     }
 };
 
@@ -104,19 +109,23 @@ window.addEventListener("load", () => {
   document.querySelectorAll('input[type="text"]').forEach(input => input.value = '');
 });
 
-function transition4() {
+// function transition4() {
     
-    envelopeFront.classList.remove('active');
-    envelopeBack.classList.add('active');
-}
+//     envelopeFront.classList.remove('active');
+//     envelopeBack.classList.add('active');
+// }
 
+const audioControls = document.getElementById("audio-controls");
 function transition5() {
+    
     envelopesfx.play();
     overlay.classList.add("active");
     setTimeout(() => {
         overlay.classList.remove("active");
         envelopeBack.classList.remove('active');
         letter.classList.add('active');
+        audioControls.style.backgroundColor = "rgba(131, 176, 248, 0.913)";
+        audioControls.style.borderColor = "white";
     }, 1500); 
     
 }
@@ -128,6 +137,8 @@ function transition6() {
         overlay.classList.remove("active");
         letter.classList.remove('active');
         end.classList.add('active');
+        audioControls.style.backgroundColor = "#f879a4";
+        audioControls.style.borderColor = "#E75495";
     }, 1000); 
     displayEnding();
 }
