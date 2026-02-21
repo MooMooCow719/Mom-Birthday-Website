@@ -1,0 +1,118 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Mom's Birthday Website">
+    <meta name="robots" content="noindex">
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+    <title>Happy Birthday Mom!</title>
+</head>
+<body>
+    
+    <div class="audio-controls">
+        <button id="mute-btn" onclick="togglebg()">Click for music!</button>
+    </div>
+   
+        
+    <div id="title" class="screen active">
+        <div class="outertile">
+            <div class="innertile">
+                <h1>Happy birthday Mom!</h1>
+                <h3 style="cursor: pointer;" onclick="transition1()"><u>> Click to start < </u></h3>
+                
+                
+            </div>
+        </div>
+        
+    </div>
+
+    <div id="intro" class="screen">
+        <h2>oh no! it's february 22nd and i forgot the card!</h2>
+        <img src="az-tx-map.png">
+        <h3 style="cursor: pointer;" onclick="transition2()"><u>Continue >></u></h3>
+    </div>
+
+    <div id="mail-truck-scene" class="screen">
+        <h2>hurry, click the mail truck to make it go!</h2>
+        <!-- <img src="az-tx-map.png"> -->
+        <div class="mail-truck" id="mail-truck-div">
+            <img id="mail-truck" class="mail-truck" src="mail-truck.png" draggable="false">
+        </div>
+    </div>
+
+    <div id="screen-envelope-front" class="screen">
+        <!-- front of envelope -->
+        <h2>just confirming, is this your mail...?</h2>
+        
+            <div class="card-front" id="cardfront">
+                <div class="top-items">
+                    <div class="sender">
+                        <p>From: Loc Tran</p>
+                        <p>The University of Texas at Dallas</p>
+                        <p>Richardson, TX</p>
+                    </div>
+                    <div class="stamp" draggable="false">
+                    <img src="stamp.png" ondblclick="validateForm(0)">
+                    </div>
+                </div>
+                
+                <div class="recipient1">
+                    <!-- the envelope div has a neatly tucked password form so only mom can open it  -->
+                    <div class="recipient">
+                        <label for="pass">full name:</label>
+                        <input type="text" id="pass1" name="password" required />
+                        <label for="pass">birth date (mm/dd/yyyy):</label>
+                        <input type="text" id="pass2" name="password" required />
+                        <label for="pass">city, state:</label>
+                        <input type="text" id="pass3" name="password" required />
+                        <input class="submit-button" type="submit" value="> that's me! <" onclick="validateForm(1)"/>
+                    </div>
+                </div>
+            
+        </div>
+        
+
+
+    </div>
+
+    <div id="fade-overlay"></div>
+
+    <div id="screen-envelope-back" class="screen">
+        <!-- back of envelope -->
+         <!-- make and style using css -->
+          <h2>go on, open it!</h2>
+        <div class="envelope-back"  onclick="transition5()">
+            <div class="flap"></div>
+        </div>
+    </div>
+
+    <div id="screen-letter" class="screen">
+        <!-- scrollable letter -->
+        <div id="letter">
+            <h3>Dear Mom,</h3>
+            <p>Happy birthday! I'm sorry I couldn't mail you a card in time this year,
+                so I made you your own website instead! I'm so happy to have spent so many years and birthdays full of joy with you
+                , and I hope today is as wonderful as you are. I love you so much and 
+                think about you every day, even if I'm away at college. To an amazing birthday 
+                and an even better year for the best mom in the world!
+            </p>
+            <h4>Love,</h4>
+            <h4>Loc</h4>
+        </div>
+        <div id="end-button">
+            <h3 style="cursor: pointer;" onclick="transition6()"><u>End >></u></h3>
+        </div>
+    </div>
+
+    <div id="end" class="screen">
+        <h1 id="one">Happy birthday again, Mom!</h1>
+        <h2 id="two">I hope you have fun today on your special day.</h2>
+        <h2 id="three">I wish I was there to celebrate it with you, but know that
+            I love you always.</h2>
+        <h4 id="four">p.s. check the mail for your other gift!</h4>
+    </div>
+</body>
+
+</html>
